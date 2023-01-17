@@ -8,6 +8,7 @@ public class Pizza {
 
     private boolean once;
     private boolean once1;
+    private boolean once3;
 
 
 
@@ -15,6 +16,7 @@ public class Pizza {
         this.isVeg = isVeg;
         once=true;
         once1=true;
+        once3=true;
         if(isVeg){
             bill="Base Price Of The Pizza: 300\n";
             price=300;
@@ -61,8 +63,12 @@ public class Pizza {
     }
 
     public void addTakeaway(){
-        bill+="Paperbag Added: 20\n";
-        price+=20;
+        if(once3){
+            bill+="Paperbag Added: 20\n";
+            price+=20;
+            once3=false;
+        }
+
     }
 
     public String getBill(){
