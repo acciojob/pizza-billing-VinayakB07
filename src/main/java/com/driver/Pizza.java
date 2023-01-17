@@ -6,9 +6,25 @@ public class Pizza {
     private Boolean isVeg;
     private String bill;
 
+    private boolean once;
+    private boolean once1;
+
+
+
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
-        // your code goes here
+        once=true;
+        once1=true;
+        if(isVeg){
+            bill="Base Price Of The Pizza: 300\n";
+            price=300;
+        }
+        else{
+            bill="Base Price Of The Pizza: 400\n";
+            price=400;
+        }
+
+
     }
 
     public int getPrice(){
@@ -16,19 +32,46 @@ public class Pizza {
     }
 
     public void addExtraCheese(){
-        // your code goes here
+        if(once){
+            bill+="Extra Cheese Added: 80\n";
+            price+=80;
+            once=false;
+            }
+
+
     }
 
     public void addExtraToppings(){
-        // your code goes here
+      if(isVeg){
+          if(once1){
+              bill+="Extra Toppings Added: 70\n";
+              price+=70;
+              once1=false;
+          }
+
+      }
+      else{
+          if(once1){
+              bill+="Extra Toppings Added: 120\n";
+              price+=120;
+              once1=false;
+          }
+
+      }
     }
 
     public void addTakeaway(){
-        // your code goes here
+        bill+="Paperbag Added: 20\n";
+        price+=20;
     }
 
     public String getBill(){
-        // your code goes here
+        bill+="Total Price: "+price;
         return this.bill;
     }
 }
+//    Base Price Of The Pizza: 300
+//        Extra Cheese Added: 80
+//        Extra Toppings Added: 70
+//        Paperbag Added: 20
+//        Total Price: 470
