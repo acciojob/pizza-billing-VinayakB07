@@ -4,28 +4,30 @@ public class Pizza {
 
     private int price;
     private Boolean isVeg;
-    private String bill;
-
-    private boolean once;
-    private boolean once1;
-    private boolean once3;
-
-
+    private String bill="";
+    private int topping;
+    boolean x;
+    boolean y;
+    boolean z;
+    boolean b;
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
-        once=true;
-        once1=true;
-        once3=true;
+        this.x=false;
+        this.y=false;
+        this.z=false;
+        this.b=false;
         if(isVeg){
-            bill="Base Price Of The Pizza: 300\n";
-            price=300;
+
+            this.price=300;
+            this.topping=70;
         }
         else{
-            bill="Base Price Of The Pizza: 400\n";
-            price=400;
-        }
 
+            this.price=400;
+            this.topping=120;
+        }
+        this.bill+="Base Price Of The Pizza: "+price+"\n";
 
     }
 
@@ -33,46 +35,44 @@ public class Pizza {
         return this.price;
     }
 
-    public void addExtraCheese(){
-        if(once){
-            bill+="Extra Cheese Added: 80\n";
+    public void addExtraCheese() {
+
+        if (x == false) {
             price+=80;
-            once=false;
-            }
-
-
+            x=true;
+        }
     }
 
     public void addExtraToppings(){
-      if(isVeg){
-          if(once1){
-              bill+="Extra Toppings Added: 70\n";
-              price+=70;
-              once1=false;
-          }
+      if(y==false){
+          price+=topping;
+          y=true;
+      }
 
       }
-      else{
-          if(once1){
-              bill+="Extra Toppings Added: 120\n";
-              price+=120;
-              once1=false;
-          }
 
-      }
-    }
 
     public void addTakeaway(){
-        if(once3){
-            bill+="Paperbag Added: 20\n";
-            price+=20;
-            once3=false;
-        }
+       if(z==false){
+           price+=20;
+           z=true;
+       }
 
     }
 
     public String getBill(){
-        bill+="Total Price: "+price;
+       if(b==false){
+            if(x){
+                bill+="Extra Cheese Added: 80\n";
+            }
+            if(y){
+                bill+="Extra Toppings Added: "+topping+"\n";
+            }
+            if(z){
+                bill+="Paperbag Added: 20\n";
+            }
+            bill+="Total Price: "+price+"\n";
+       }
         return this.bill;
     }
 }
