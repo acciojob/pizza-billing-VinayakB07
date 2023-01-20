@@ -63,21 +63,16 @@ public class Pizza {
     public String getBill(){
        if(b==false){
             if(x){
-                bill+="Extra Cheese Added: 80\n";
+                bill+="Extra Cheese Added: "+80+"\n";
             }
             if(y){
                 bill+="Extra Toppings Added: "+topping+"\n";
             }
             if(z){
-                bill+="Paperbag Added: 20\n";
+                bill+="Paperbag Added: "+20+"\n";
             }
             bill+="Total Price: "+price+"\n";
        }
         return this.bill;
     }
 }
-//    Base Price Of The Pizza: 300
-//        Extra Cheese Added: 80
-//        Extra Toppings Added: 70
-//        Paperbag Added: 20
-//        Total Price: 470
