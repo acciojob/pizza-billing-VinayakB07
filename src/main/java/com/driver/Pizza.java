@@ -61,7 +61,7 @@ public class Pizza {
     }
 
     public String getBill(){
-       if(b==false){
+       if(!b){
             if(x){
                 bill+="Extra Cheese Added: "+80+"\n";
             }
@@ -72,7 +72,9 @@ public class Pizza {
                 bill+="Paperbag Added: "+20+"\n";
             }
             bill+="Total Price: "+price+"\n";
+           b=true;
+           return this.bill;
        }
-        return this.bill;
+       return"";
     }
 }
